@@ -6,6 +6,10 @@ on:
 permissions:
   contents: write
 
+defaults:
+  run:
+    shell: bash
+
 concurrency:
   group: combined-delivery
   cancel-in-progress: false
@@ -44,6 +48,11 @@ jobs:
           uv run ruff check .
           uv run ruff format --check .
           uv run pytest -q --junitxml=output/cloud/pytest.xml
+      - name: Reserve image export space on the temporary runner
+        run: |
+          test "$RUNNER_ENVIRONMENT" = github-hosted
+          sudo rm -rf -- /usr/local/lib/android /usr/share/dotnet
+          df -h .
       - name: Download and verify pinned model images
         run: uv run python scripts/prepare_cloud_build.py all
       - name: Build the combined image
@@ -63,6 +72,8 @@ jobs:
           uv run python scripts/check_combined_lifecycle.py --project "$COMPOSE_PROJECT_NAME" --port 18868 --output "$EVIDENCE/lifecycle.json"
       - name: Export verified offline delivery
         run: |
+          set -euo pipefail
+          df -h .
           uv run python scripts/package_forecast_dispatch.py --version "$DELIVERY_VERSION" --image "$DISPATCH_IMAGE" --evidence "$EVIDENCE" | tee output/cloud/package-result.json
       - name: Verify exported image and offline startup
         run: |
@@ -88,5 +99,6 @@ jobs:
         if: always()
         run: |
           docker ps -a
+          docker system df
           docker compose --env-file deploy/forecast-dispatch/.env.example -f deploy/forecast-dispatch/compose.yaml logs --no-color --tail 100 || true
           df -h .

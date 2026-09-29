@@ -17,6 +17,28 @@ sys.path.insert(0, str(DEPLOY))
 from verify_vendor import VENDORS, digest, release, verify  # noqa: E402
 
 
+def export_image(image: str, destination: Path) -> None:
+    """Compress the Docker stream without storing a second, uncompressed archive."""
+    partial = destination.with_suffix(destination.suffix + ".part")
+    command = ["docker", "save", image]
+    try:
+        with subprocess.Popen(command, stdout=subprocess.PIPE) as process:
+            try:
+                with gzip.open(partial, "wb", compresslevel=3) as stream:
+                    shutil.copyfileobj(process.stdout, stream, length=1024 * 1024)
+            except BaseException:
+                process.kill()
+                raise
+            finally:
+                process.stdout.close()
+            if returncode := process.wait():
+                raise subprocess.CalledProcessError(returncode, command)
+        partial.replace(destination)
+    except BaseException:
+        partial.unlink(missing_ok=True)
+        raise
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -108,10 +130,7 @@ print(json.dumps({p.relative_to(root).as_posix(): hashlib.sha256(p.read_bytes())
         originals[profile] = original
     delivery.mkdir()
     image = delivery / "dispatch-image.tar.gz"
-    source_image = ROOT / f"output/forecast-integration/dispatch-image-{version}.tar"
-    subprocess.run(["docker", "save", "-o", str(source_image), args.image], check=True)
-    with source_image.open("rb") as src, gzip.open(image, "wb", compresslevel=3) as dst:
-        shutil.copyfileobj(src, dst, length=1024 * 1024)
+    export_image(args.image, image)
     # The delivered image already contains both models and their environments.
     # Keep source identity evidence, not two additional runnable image archives.
     (delivery / "vendor-provenance.json").write_text(
