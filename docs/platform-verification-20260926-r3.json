@@ -1,0 +1,364 @@
+{
+  "passed": true,
+  "history_replay": [
+    {
+      "day": "2025-10-06 00:00:00+08:00",
+      "http_status": 200,
+      "reason": "history_not_ready",
+      "points": 0
+    },
+    {
+      "day": "2025-10-07 00:00:00+08:00",
+      "http_status": 200,
+      "reason": "history_not_ready",
+      "points": 0
+    },
+    {
+      "day": "2025-10-08 00:00:00+08:00",
+      "http_status": 200,
+      "reason": null,
+      "points": 1
+    },
+    {
+      "day": "2025-10-09 00:00:00+08:00",
+      "http_status": 200,
+      "reason": null,
+      "points": 1
+    },
+    {
+      "day": "2025-10-10 00:00:00+08:00",
+      "http_status": 200,
+      "reason": null,
+      "points": 1
+    },
+    {
+      "day": "2025-10-11 00:00:00+08:00",
+      "http_status": 200,
+      "reason": null,
+      "points": 1
+    },
+    {
+      "day": "2025-10-12 00:00:00+08:00",
+      "http_status": 200,
+      "reason": null,
+      "points": 1
+    },
+    {
+      "day": "2025-10-13 00:00:00+08:00",
+      "http_status": 200,
+      "reason": null,
+      "points": 1
+    },
+    {
+      "day": "2025-10-14 00:00:00+08:00",
+      "http_status": 200,
+      "reason": null,
+      "points": 1
+    },
+    {
+      "day": "2025-10-15 00:00:00+08:00",
+      "http_status": 200,
+      "reason": null,
+      "points": 1
+    },
+    {
+      "day": "2025-10-16 00:00:00+08:00",
+      "http_status": 200,
+      "reason": null,
+      "points": 1
+    },
+    {
+      "day": "2025-10-17 00:00:00+08:00",
+      "http_status": 200,
+      "reason": null,
+      "points": 1
+    },
+    {
+      "day": "2025-10-18 00:00:00+08:00",
+      "http_status": 200,
+      "reason": null,
+      "points": 1
+    },
+    {
+      "day": "2025-10-19 00:00:00+08:00",
+      "http_status": 200,
+      "reason": null,
+      "points": 1
+    },
+    {
+      "day": "2025-10-20 00:00:00+08:00",
+      "http_status": 200,
+      "reason": null,
+      "points": 1
+    },
+    {
+      "day": "2025-10-21 00:00:00+08:00",
+      "http_status": 200,
+      "reason": null,
+      "points": 1
+    },
+    {
+      "day": "2025-10-22 00:00:00+08:00",
+      "http_status": 200,
+      "reason": null,
+      "points": 1
+    },
+    {
+      "day": "2025-10-23 00:00:00+08:00",
+      "http_status": 200,
+      "reason": null,
+      "points": 1
+    },
+    {
+      "day": "2025-10-24 00:00:00+08:00",
+      "http_status": 200,
+      "reason": null,
+      "points": 1
+    },
+    {
+      "day": "2025-10-25 00:00:00+08:00",
+      "http_status": 200,
+      "reason": null,
+      "points": 1
+    },
+    {
+      "day": "2025-10-26 00:00:00+08:00",
+      "http_status": 200,
+      "reason": null,
+      "points": 1
+    },
+    {
+      "day": "2025-10-27 00:00:00+08:00",
+      "http_status": 200,
+      "reason": null,
+      "points": 1
+    },
+    {
+      "day": "2025-10-28 00:00:00+08:00",
+      "http_status": 200,
+      "reason": null,
+      "points": 1
+    },
+    {
+      "day": "2025-10-29 00:00:00+08:00",
+      "http_status": 200,
+      "reason": null,
+      "points": 1
+    },
+    {
+      "day": "2025-10-30 00:00:00+08:00",
+      "http_status": 200,
+      "reason": null,
+      "points": 1
+    },
+    {
+      "combined_http_status": 200,
+      "balance_error_mw": 0.0,
+      "selected_demand_mw": 1803.4032,
+      "actual_and_renewable_are_synthetic": true
+    }
+  ],
+  "day_history_replay": [
+    {
+      "day": "2025-10-06 00:00:00+08:00",
+      "points": 0,
+      "reason": "history_not_ready"
+    },
+    {
+      "day": "2025-10-07 00:00:00+08:00",
+      "points": 0,
+      "reason": "history_not_ready"
+    },
+    {
+      "day": "2025-10-08 00:00:00+08:00",
+      "points": 0,
+      "reason": "history_not_ready"
+    },
+    {
+      "day": "2025-10-09 00:00:00+08:00",
+      "points": 0,
+      "reason": "history_not_ready"
+    },
+    {
+      "day": "2025-10-10 00:00:00+08:00",
+      "points": 0,
+      "reason": "history_not_ready"
+    },
+    {
+      "day": "2025-10-11 00:00:00+08:00",
+      "points": 0,
+      "reason": "history_not_ready"
+    },
+    {
+      "day": "2025-10-12 00:00:00+08:00",
+      "points": 96,
+      "reason": null
+    },
+    {
+      "day": "2025-10-13 00:00:00+08:00",
+      "points": 96,
+      "reason": null
+    },
+    {
+      "day": "2025-10-14 00:00:00+08:00",
+      "points": 96,
+      "reason": null
+    },
+    {
+      "day": "2025-10-15 00:00:00+08:00",
+      "points": 96,
+      "reason": null
+    },
+    {
+      "day": "2025-10-16 00:00:00+08:00",
+      "points": 96,
+      "reason": null
+    },
+    {
+      "day": "2025-10-17 00:00:00+08:00",
+      "points": 96,
+      "reason": null
+    },
+    {
+      "day": "2025-10-18 00:00:00+08:00",
+      "points": 96,
+      "reason": null
+    },
+    {
+      "day": "2025-10-19 00:00:00+08:00",
+      "points": 96,
+      "reason": null
+    },
+    {
+      "day": "2025-10-20 00:00:00+08:00",
+      "points": 96,
+      "reason": null
+    },
+    {
+      "day": "2025-10-21 00:00:00+08:00",
+      "points": 96,
+      "reason": null
+    },
+    {
+      "day": "2025-10-22 00:00:00+08:00",
+      "points": 96,
+      "reason": null
+    },
+    {
+      "day": "2025-10-23 00:00:00+08:00",
+      "points": 96,
+      "reason": null
+    },
+    {
+      "day": "2025-10-24 00:00:00+08:00",
+      "points": 96,
+      "reason": null
+    },
+    {
+      "day": "2025-10-25 00:00:00+08:00",
+      "points": 96,
+      "reason": null
+    },
+    {
+      "day": "2025-10-26 00:00:00+08:00",
+      "points": 96,
+      "reason": null
+    },
+    {
+      "day": "2025-10-27 00:00:00+08:00",
+      "points": 96,
+      "reason": null
+    },
+    {
+      "day": "2025-10-28 00:00:00+08:00",
+      "points": 96,
+      "reason": null
+    },
+    {
+      "day": "2025-10-29 00:00:00+08:00",
+      "points": 96,
+      "reason": null
+    },
+    {
+      "day": "2025-10-30 00:00:00+08:00",
+      "points": 96,
+      "reason": null
+    }
+  ],
+  "platform_contract_verified": true,
+  "platform_route": "/api/v1/fluxcast/compute",
+  "platform_response_points": 29,
+  "dual_forecast_verified": true,
+  "day_forecast_points": 96,
+  "day_forecast_history_points": 672,
+  "separate_forecast_caches_verified": true,
+  "forecast_horizon_points": 1,
+  "forecast_history_points": 288,
+  "thermal_history_is_real": true,
+  "thermal_state_basis": "power_history_estimate",
+  "renewable_input_is_synthetic": true,
+  "runtime_sha256": {
+    "api.py": "65169bd909cf1991af8546e42e0ef89be5b5ca51347ab30f4c989f1f40ef736f",
+    "start.sh": "7f1f9ecd07dbdc3ddc6edd6069e69cde1efb9af9e2b1894ef566e3f523bd5e52",
+    "pyproject.toml": "cf5c74614082443ce17989ebecc7bd4fbd715872667594489c0344fdfc262670",
+    "uv.lock": "2128b6cb76bcdb353b6b4c570a6dbcf865c29db959ac866b5ee007b0ee5c0693",
+    "src/single_period_store.py": "9996bf8b0d552a4bc25d197806e00978328b67a5d2f965d4457c004fbc180607",
+    "src/renewable_provider.py": "d79a19afe7a3a33bf0020b2fd9f47b9fe24d9ca04bae9feb6e54b5b3d3555244",
+    "src/offline_actual_baseline.py": "95678e470a4cfe6e47257981c7c5376f1fad1d7b0b898d2227df6e7ac103dc5a",
+    "src/dispatch_engine.py": "feda72ba9bd248394eb9f936a2f67a28e90c5862192e191249ad2fb60f378748",
+    "src/single_period_worker.py": "544c0cdda83bc33ee0da7961d4bb17cfa049faf7288abdd525e50a4d3dbfb218",
+    "src/input_quality.py": "c3348b6b35b2dc7eb6a2781ef531f85f07bfbf428254922e949021b7392aaeb7",
+    "src/__init__.py": "bf5c2aa7d90ab030795deb9ae78ee5c933c544317ba24036b8684c9c80af8b07",
+    "src/single_period_comparison.py": "17b5a01778f3862972aa4c00243d38cf84938be27f7128f79bf68facd749f040",
+    "src/cost_basis.py": "266711012d2367b2c9da88118be2324f74739b0ceaa727daa7ce81894a143aed",
+    "src/station_labels.py": "dbeff86f241b7be0f223086e8f0a2c2fa8a6229ca66c17a018005da18304c227",
+    "src/errors.py": "0f4e525da7aaaa5667d1ec37083629e53a9668c4f0dfcc29f30f120d889b611a",
+    "src/runtime_config.py": "0f258e50e1e5d1767a03ae5a27ddc9df95e55de62f18f20dbe54a99b2aba5d5a",
+    "src/platform_config.py": "603f70f635343380eb6cbf554c796525275bb8517f0f543025c6ff8ac06f08c8",
+    "src/forecast_bridge.py": "21dcdf51ec75de19b708c81542883a3bb3cd1e6559f531e0a0ab5901478a84cc",
+    "src/single_period_service.py": "b60c0c998c3f61433b33ea6df1ea3ea471c243148bc797282ca3402458c64acf",
+    "src/period_accounting.py": "dbf8e28c114206b889b8a4462c2f8302ea6137eaad17d1e5fabbb09104e7b844",
+    "src/platform_adapter.py": "f97cee7175f8fd70633dd951509c267dd03c50f08b396b399d30b72bd7e243b4",
+    "src/single_period_solver.py": "df807005cd3039801e5da371332cb8300db2e09ad42a9d654b2b133ab06de2c7",
+    "src/highs_solver.py": "b1cb05f6368ba0d7c00dd7f3bbaf40c081331ed5f7cf7357fbb9897b887ea1ff",
+    "src/single_period_models.py": "a7309344bba9b596cbe1e2354ec63f0c321634ca6b76eb44563f935b7f52d5c6",
+    "config/renewable_capacities.json": "029a09080b8414998ed622431c7cfce8208bc662d3f9945c5eb54f1903f0dccb",
+    "config/forecast_measurement_points.json": "e0fc30421f723f6da881e32e3647e0c608869c9346f5e2901773ead12a78d3eb",
+    "config/station_parameters.json": "6162485cc125a69e7b49fa721d22fe64896a5b0f1805ac599afd9763c9bbc786",
+    "data/README.md": "7f2ae43ec3ae92d852dec4636752486e2fc74fdde00fc125db9d0cdf6f2fcaa9",
+    "data/\u667a\u6167\u8c03\u5ea6\u6570\u636e\u9700\u6c42\u6e05\u5355\u6c47\u603b.xlsx": "1f6c8836be83f127a099f1f939c93c371449784b0515f4bcff615d209f01889c",
+    "data/manifest.json": "029ebd62d64ba37ab4fae2ab722cce8dac5cb31faaf0673b7f49dc639810271a",
+    "data/\u4eac\u6d25\u5180\u573a\u7ad9\u73b0\u6709\u529f\u7387\u9884\u6d4b\u7cfb\u7edf\u6570\u91cf\u7edf\u8ba1-\u542b\u6d4b\u70b9.xlsx": "ee5a8183b67210c5aefa699c771b91dde3e15839e848045a9aa2d0956da6a706",
+    "data/\u65b0\u80fd\u6e90\u573a\u7ad9\u9884\u6d4b\u8f93\u5165\u6570\u636e/farm_11.json": "33a93fcfa52c878023d11637ae35364da6bae9874bbd4722dd2f00c4473c5a17",
+    "data/\u65b0\u80fd\u6e90\u573a\u7ad9\u9884\u6d4b\u8f93\u5165\u6570\u636e/farm_28.json": "50998b93e5c9ccfe902fef81360fcecf55c346a8e02acaf0e3772539dfcc990c",
+    "data/\u65b0\u80fd\u6e90\u573a\u7ad9\u9884\u6d4b\u8f93\u5165\u6570\u636e/farm_2.json": "fdb20742156df7332f828e2c24ca971956f8e679935fedb016f9f36f278c7c04",
+    "data/\u65b0\u80fd\u6e90\u573a\u7ad9\u9884\u6d4b\u8f93\u5165\u6570\u636e/farm_21.json": "078ba10ce3bb01baa6c43436b72d67ec009d47d44e30fa1bb947d47a7e701f41",
+    "data/\u65b0\u80fd\u6e90\u573a\u7ad9\u9884\u6d4b\u8f93\u5165\u6570\u636e/farm_10.json": "040095a74ef22af8d6cdd3c5945cf2b251d95d964ebc7cea5f22656508a3480a",
+    "data/\u65b0\u80fd\u6e90\u573a\u7ad9\u9884\u6d4b\u8f93\u5165\u6570\u636e/farm_4.json": "f1c9404f06da65ec84266df5c0edf0b9b6766f1e63eaadaa698070d3ad9ee39c",
+    "data/\u65b0\u80fd\u6e90\u573a\u7ad9\u9884\u6d4b\u8f93\u5165\u6570\u636e/farm_22.json": "598e2b5d038d391b93e50ef39f1b93121801285ac367731bc6ce013c48d27348",
+    "data/\u65b0\u80fd\u6e90\u573a\u7ad9\u9884\u6d4b\u8f93\u5165\u6570\u636e/farm_23.json": "59fdecf402bdb11cfa882422a38646f4fedb2edbacb12412a1c9a089949c38e2",
+    "data/\u65b0\u80fd\u6e90\u573a\u7ad9\u9884\u6d4b\u8f93\u5165\u6570\u636e/farm_8.json": "c0e2bea926908f64e25eea0a653ff70a53a53eda6fe2a802eb981ba66817498f",
+    "data/\u65b0\u80fd\u6e90\u573a\u7ad9\u9884\u6d4b\u8f93\u5165\u6570\u636e/farm_17.json": "c97782f923b7c95a6ad34d15a374c640b4b4448e4765a076ae9d83ae1b2484b7",
+    "data/\u65b0\u80fd\u6e90\u573a\u7ad9\u9884\u6d4b\u8f93\u5165\u6570\u636e/farm_1.json": "8d5f420c9021e691391bee373b8bfd4401bc9ba31cb59c8f0ed3e6ca18d63d3b",
+    "data/\u65b0\u80fd\u6e90\u573a\u7ad9\u9884\u6d4b\u8f93\u5165\u6570\u636e/farm_19.json": "1585042c787ab8477f12d3ce678f5974fe88aee7946712de13dff3dcb0919ca7",
+    "data/\u65b0\u80fd\u6e90\u573a\u7ad9\u9884\u6d4b\u8f93\u5165\u6570\u636e/farm_20.json": "23c42f19c332f54542aaac048313aa1e579b3cbbc421190a5262f3a290e48a17",
+    "data/\u65b0\u80fd\u6e90\u573a\u7ad9\u9884\u6d4b\u8f93\u5165\u6570\u636e/farm_3.json": "f8894f0a32ab31370144dccbcf544e154a66dd60ec05b7126749c1fa1b4f4a0f",
+    "data/\u65b0\u80fd\u6e90\u573a\u7ad9\u9884\u6d4b\u8f93\u5165\u6570\u636e/farm_16.json": "dd8981936f6ed95cfe0935a016d163a6d19c6f165c18008d349bea4403c1a03a",
+    "data/\u65b0\u80fd\u6e90\u573a\u7ad9\u9884\u6d4b\u8f93\u5165\u6570\u636e/farm_13.json": "f310627f92f601baa060cf07459c89e1e58588ccb059dee522b4f4db74cdf7a4",
+    "data/\u65b0\u80fd\u6e90\u573a\u7ad9\u9884\u6d4b\u8f93\u5165\u6570\u636e/farm_7.json": "232a4756d5e31c1cdad2ee6df0a2646a498806ecfe91e7ad27a984881f520a67",
+    "data/\u65b0\u80fd\u6e90\u573a\u7ad9\u9884\u6d4b\u8f93\u5165\u6570\u636e/farm_12.json": "68f984d5776efee9bcf4b7e1254f0b69925327337d7e64a1f8e1ed9a3a998def",
+    "data/\u65b0\u80fd\u6e90\u573a\u7ad9\u9884\u6d4b\u8f93\u5165\u6570\u636e/farm_29.json": "6ceac0923fe40d82d510964d577ee2e5c0a5e6e1264c80553b5a468a8c33ad33",
+    "data/\u7535\u673a\u7cfb\u53c2\u6570\u9700\u6c42/jxrd_240601_260101_15min.csv": "b8b21cd3a3128984cee52022f57b903c104fc1c0276f4eaf0973c6c8e4a0690c",
+    "data/\u7535\u673a\u7cfb\u53c2\u6570\u9700\u6c42/jfrd_220101_260101_15min.csv": "cc15cfb098a22f15f82f8e2986f65f6f8c55d2fbeb4b946eead65da2bcd65baa",
+    "data/\u7535\u673a\u7cfb\u53c2\u6570\u9700\u6c42/jqrd_220101_260101_15min.csv": "c3d16d46387a173856bbbb08ff3878b9fe806c024f091f41295ef223abfb8744",
+    "data/\u7535\u673a\u7cfb\u53c2\u6570\u9700\u6c42/gard_240601_260101_15min.csv": "8c6a8245befb2ac3161acfa92dbaf5dda351c37e02fb57e7e84c1ab414c539bc",
+    "data/\u7535\u673a\u7cfb\u53c2\u6570\u9700\u6c42/szrd_220101_260101_15min.csv": "4983bc7daf39e68d4d8ea0e841be84347a54c77191b7efd4ee06b6afc693e9c6",
+    "data/\u7535\u673a\u7cfb\u53c2\u6570\u9700\u6c42/jyrd_230401_260401_15min.csv": "8b27e85e9a4db14f464125021b66eeef4e9bd157e70355bfe1d95967191e9178",
+    "data/\u7535\u673a\u7cfb\u53c2\u6570\u9700\u6c42/wlrd_220101_260101_15min.csv": "563156a39fbd3983b4e932ee3fc8ae8178f64af1170228a2c1dcf8746dab5bf2",
+    "dashboard/styles.css": "f9818359f4f9b1ca3779ccaf99f54d097ca02b56ae539a2ae0510ca49b02cf95",
+    "dashboard/app.js": "d3285ccee0eb987efd448bbb8363595ca3f3b52d885c2c0d3b731d90fd6cecd1",
+    "dashboard/index.html": "49655229d366f6f9b63b0198ecd6262b3d4f71d5a7a02d876b6e9e8700e29e42",
+    "dashboard/single-period-data.js": "b3bb3b9cd2e20c5ca6a6fafd112cbea2f9db69814d404c8d6a8e0f88be5038d4"
+  },
+  "container_balance_error_mw": 0.0
+}

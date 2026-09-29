@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "source": "京津冀场站现有功率预测系统数量统计-含测点.xlsx",
+  "farms": [
+    {
+      "farm_id": 1,
+      "station_name": "康保风电",
+      "capacity_mw": 150.8
+    },
+    {
+      "farm_id": 2,
+      "station_name": "孟家房子光伏电站（一期）",
+      "capacity_mw": 78.57
+    },
+    {
+      "farm_id": 3,
+      "station_name": "孟家房子光伏电站（二期）",
+      "capacity_mw": 30.54
+    },
+    {
+      "farm_id": 4,
+      "station_name": "孟家房子光伏电站（三期）",
+      "capacity_mw": 24.51
+    },
+    {
+      "farm_id": 7,
+      "station_name": "后杨庄光伏电站",
+      "capacity_mw": 70.22
+    },
+    {
+      "farm_id": 8,
+      "station_name": "宁河光伏电站",
+      "capacity_mw": 80.04
+    },
+    {
+      "farm_id": 10,
+      "station_name": "杨津庄风电场",
+      "capacity_mw": 30.0
+    },
+    {
+      "farm_id": 11,
+      "station_name": "苗庄风电场",
+      "capacity_mw": 76.0
+    },
+    {
+      "farm_id": 12,
+      "station_name": "板桥风电站",
+      "capacity_mw": 47.0
+    },
+    {
+      "farm_id": 13,
+      "station_name": "郝家营风电场（二期）",
+      "capacity_mw": 50.0
+    },
+    {
+      "farm_id": 16,
+      "station_name": "郝家营风电场（一期）",
+      "capacity_mw": 99.9
+    },
+    {
+      "farm_id": 17,
+      "station_name": "大囫囵风电场（一期）",
+      "capacity_mw": 75.0
+    },
+    {
+      "farm_id": 19,
+      "station_name": "大囫囵风电场（二期）",
+      "capacity_mw": 75.0
+    },
+    {
+      "farm_id": 20,
+      "station_name": "官厅风电场",
+      "capacity_mw": 184.5
+    },
+    {
+      "farm_id": 21,
+      "station_name": "麻黄峪风电站",
+      "capacity_mw": 49.5
+    },
+    {
+      "farm_id": 22,
+      "station_name": "延庆光伏电站（一期）",
+      "capacity_mw": 32.79
+    },
+    {
+      "farm_id": 23,
+      "station_name": "峻盛风电场",
+      "capacity_mw": 79.91
+    },
+    {
+      "farm_id": 28,
+      "station_name": "东棘坨风电场",
+      "capacity_mw": 70.0
+    },
+    {
+      "farm_id": 29,
+      "station_name": "延庆光伏电站（二期）",
+      "capacity_mw": 33.76
+    }
+  ]
+}

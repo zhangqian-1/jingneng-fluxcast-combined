@@ -1,0 +1,23 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+.env
+
+# Include the explicitly requested offline regression inputs in delivery.
+data/*
+!data/README.md
+!data/manifest.json
+!data/*.xlsx
+!data/电机系参数需求/
+!data/新能源场站预测输入数据/
+.uv-cache/
+# Generated dispatch artifacts remain local.
+output/*
+!output/.gitkeep
+
+# IDE and operating-system files.
+.vscode/
+.idea/
+Thumbs.db

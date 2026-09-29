@@ -1,0 +1,37 @@
+image: python:3.10-slim-bookworm
+
+stages:
+  - lint
+  - test
+
+variables:
+  UV_LINK_MODE: copy
+  PIP_INDEX_URL: "https://mirrors.aliyun.com/pypi/simple/"
+  UV_DEFAULT_INDEX: "https://mirrors.aliyun.com/pypi/simple/"
+
+before_script:
+  # Shell executors ignore `image:`. Bootstrap the pinned uv version through
+  # Python so the pipeline also works on the currently configured Runner.
+  - |
+    if command -v python3 >/dev/null 2>&1; then
+      PYTHON_BIN="$(command -v python3)"
+    elif command -v python >/dev/null 2>&1; then
+      PYTHON_BIN="$(command -v python)"
+    else
+      echo "Python 3 is required on the GitLab Shell Runner host."
+      exit 1
+    fi
+    "$PYTHON_BIN" -m pip install --disable-pip-version-check "uv==0.12.3"
+    "$PYTHON_BIN" -m uv sync --all-groups --frozen
+
+lint:
+  stage: lint
+  script:
+    - '"$PYTHON_BIN" -m uv run python scripts/check_delivery.py'
+    - '"$PYTHON_BIN" -m uv run ruff check .'
+    - '"$PYTHON_BIN" -m uv run ruff format --check .'
+
+test:
+  stage: test
+  script:
+    - '"$PYTHON_BIN" -m uv run pytest -q'

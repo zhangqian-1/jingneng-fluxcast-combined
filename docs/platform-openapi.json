@@ -1,0 +1,738 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "JN Forecast + Single-period Dispatch",
+    "description": "Seven-station prediction + one 15-minute optimization; 27 power targets.",
+    "version": "0.2.2"
+  },
+  "paths": {
+    "/api/v1/fluxcast/config/prices": {
+      "get": {
+        "tags": [
+          "prices"
+        ],
+        "summary": "Get Prices",
+        "operationId": "get_prices_api_v1_fluxcast_config_prices_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PriceSnapshot"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "prices"
+        ],
+        "summary": "Put Prices",
+        "operationId": "put_prices_api_v1_fluxcast_config_prices_put",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PriceUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PriceSnapshot"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "summary": "Health",
+        "operationId": "health_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "type": "object",
+                  "title": "Response Health Health Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/fluxcast/forecast/compute": {
+      "post": {
+        "tags": [
+          "forecast"
+        ],
+        "summary": "Forecast Proxy",
+        "operationId": "forecast_proxy_api_v1_fluxcast_forecast_compute_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": true,
+                "type": "object",
+                "title": "Payload"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/fluxcast/forecast/latest": {
+      "get": {
+        "tags": [
+          "forecast"
+        ],
+        "summary": "Forecast Latest",
+        "operationId": "forecast_latest_api_v1_fluxcast_forecast_latest_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/fluxcast/compute": {
+      "post": {
+        "tags": [
+          "platform"
+        ],
+        "summary": "Platform Compute",
+        "operationId": "platform_compute_api_v1_fluxcast_compute_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PlatformComputePayload"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/fluxcast/single-period/compute": {
+      "post": {
+        "tags": [
+          "single-period"
+        ],
+        "summary": "Single Period Compute",
+        "operationId": "single_period_compute_api_v1_fluxcast_single_period_compute_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SingleComputePayload"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/api/v1/fluxcast/single-period/status/{snapshot_id}": {
+      "get": {
+        "tags": [
+          "single-period"
+        ],
+        "summary": "Single Period Status",
+        "operationId": "single_period_status_api_v1_fluxcast_single_period_status__snapshot_id__get",
+        "parameters": [
+          {
+            "name": "snapshot_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100,
+              "pattern": "^[A-Za-z0-9_.:-]+$",
+              "title": "Snapshot Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ActualSnapshot": {
+        "properties": {
+          "snapshot_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Snapshot Id"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Timestamp"
+          },
+          "thermal_mw": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "type": "object",
+            "title": "Thermal Mw"
+          },
+          "renewable_mw": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "type": "number"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Renewable Mw"
+          },
+          "thermal_state": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ThermalState"
+            },
+            "type": "object",
+            "title": "Thermal State"
+          },
+          "state_basis": {
+            "type": "string",
+            "enum": [
+              "reported",
+              "power_history_estimate"
+            ],
+            "title": "State Basis",
+            "default": "reported"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "snapshot_id",
+          "timestamp",
+          "thermal_mw",
+          "thermal_state"
+        ],
+        "title": "ActualSnapshot"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "PlanFrame": {
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Timestamp"
+          },
+          "thermal_mw": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "type": "object",
+            "title": "Thermal Mw"
+          },
+          "thermal_running": {
+            "additionalProperties": {
+              "type": "boolean"
+            },
+            "type": "object",
+            "title": "Thermal Running"
+          },
+          "renewable_mw": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "type": "object",
+            "title": "Renewable Mw"
+          },
+          "grid_buy_mw": {
+            "type": "number",
+            "title": "Grid Buy Mw"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "timestamp",
+          "thermal_mw",
+          "thermal_running",
+          "renewable_mw",
+          "grid_buy_mw"
+        ],
+        "title": "PlanFrame"
+      },
+      "PlatformComputePayload": {
+        "properties": {
+          "point_table": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Point Table",
+            "description": "全场站测点，支持约定的点号转义"
+          },
+          "frames": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "maxItems": 96,
+            "minItems": 96,
+            "title": "Frames",
+            "description": "连续96帧历史实测，末帧为当前时刻，UTC"
+          },
+          "renewable_data": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Renewable Data",
+            "description": "19个farmId的原始长表data合并数组"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "point_table",
+          "frames",
+          "renewable_data"
+        ],
+        "title": "PlatformComputePayload"
+      },
+      "PowerFrame": {
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Timestamp"
+          },
+          "power_mw": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "type": "object",
+            "title": "Power Mw"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "timestamp",
+          "power_mw"
+        ],
+        "title": "PowerFrame"
+      },
+      "PriceSnapshot": {
+        "properties": {
+          "stations": {
+            "items": {
+              "$ref": "#/components/schemas/StationPrice"
+            },
+            "type": "array",
+            "maxItems": 7,
+            "minItems": 7,
+            "title": "Stations"
+          },
+          "version": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Version"
+          },
+          "updated_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Updated At"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "stations",
+          "version",
+          "updated_at"
+        ],
+        "title": "PriceSnapshot"
+      },
+      "PriceUpdate": {
+        "properties": {
+          "stations": {
+            "items": {
+              "$ref": "#/components/schemas/StationPrice"
+            },
+            "type": "array",
+            "maxItems": 7,
+            "minItems": 7,
+            "title": "Stations"
+          },
+          "expected_version": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Expected Version"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "stations",
+          "expected_version"
+        ],
+        "title": "PriceUpdate"
+      },
+      "SingleComputePayload": {
+        "properties": {
+          "actual": {
+            "$ref": "#/components/schemas/ActualSnapshot"
+          },
+          "renewable_forecast": {
+            "$ref": "#/components/schemas/SingleRenewableForecast"
+          },
+          "forecast_request": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Forecast Request",
+            "description": "原预测接口请求，原字段及数值透传"
+          },
+          "reference_plan": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SingleReferencePlan"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "actual",
+          "renewable_forecast",
+          "forecast_request"
+        ],
+        "title": "SingleComputePayload"
+      },
+      "SingleReferencePlan": {
+        "properties": {
+          "snapshot_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Snapshot Id"
+          },
+          "plan_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Plan Id"
+          },
+          "issued_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Issued At"
+          },
+          "frames": {
+            "items": {
+              "$ref": "#/components/schemas/PlanFrame"
+            },
+            "type": "array",
+            "maxItems": 1,
+            "minItems": 1,
+            "title": "Frames"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "snapshot_id",
+          "plan_id",
+          "issued_at",
+          "frames"
+        ],
+        "title": "SingleReferencePlan"
+      },
+      "SingleRenewableForecast": {
+        "properties": {
+          "snapshot_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Snapshot Id"
+          },
+          "forecast_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Forecast Id"
+          },
+          "issued_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Issued At"
+          },
+          "frames": {
+            "items": {
+              "$ref": "#/components/schemas/PowerFrame"
+            },
+            "type": "array",
+            "maxItems": 1,
+            "minItems": 1,
+            "title": "Frames"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "snapshot_id",
+          "forecast_id",
+          "issued_at",
+          "frames"
+        ],
+        "title": "SingleRenewableForecast"
+      },
+      "StationPrice": {
+        "properties": {
+          "code": {
+            "type": "string",
+            "title": "Code"
+          },
+          "gen_cost_yuan_per_kwh": {
+            "type": "number",
+            "exclusiveMinimum": 0.0,
+            "title": "Gen Cost Yuan Per Kwh"
+          },
+          "buy_price_yuan_per_kwh": {
+            "type": "number",
+            "exclusiveMinimum": 0.0,
+            "title": "Buy Price Yuan Per Kwh"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "code",
+          "gen_cost_yuan_per_kwh",
+          "buy_price_yuan_per_kwh"
+        ],
+        "title": "StationPrice"
+      },
+      "ThermalState": {
+        "properties": {
+          "running": {
+            "type": "boolean",
+            "title": "Running"
+          },
+          "state_since": {
+            "type": "string",
+            "format": "date-time",
+            "title": "State Since"
+          },
+          "starts_today": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Starts Today"
+          },
+          "stops_today": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Stops Today"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "running",
+          "state_since",
+          "starts_today",
+          "stops_today"
+        ],
+        "title": "ThermalState"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

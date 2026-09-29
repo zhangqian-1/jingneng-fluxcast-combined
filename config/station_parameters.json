@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "source": "validated offline package",
+  "stations": [
+    {
+      "pmax": 769.3516792697719,
+      "pmin": 125.0,
+      "ramp_mw_per_min": 70,
+      "min_up_hour": 6,
+      "min_down_hour": 2,
+      "max_start_per_day": 1,
+      "gen_cost_yuan_per_kwh": 0.48,
+      "start_cost_yuan": 300000,
+      "stop_cost_yuan": 0,
+      "gas_price_yuan_per_m3": 2.64,
+      "heat_rate_mj_per_kwh": 5.4,
+      "gas_emission_kg_per_kwh": 0.30294,
+      "buy_price_yuan_per_kwh": 0.615,
+      "sell_price_yuan_per_kwh": 0.614,
+      "code": "GARD",
+      "measurement_points": [
+        "GARD_11MBY0100000BJ01XQ01",
+        "GARD_12MBY0100000BJ01XQ01",
+        "GARD_13MKA01CE903BJ01XQ01"
+      ]
+    },
+    {
+      "pmax": 410,
+      "pmin": 205.0,
+      "ramp_mw_per_min": 13,
+      "min_up_hour": 4,
+      "min_down_hour": 0.5,
+      "max_start_per_day": 1,
+      "gen_cost_yuan_per_kwh": 0.5856,
+      "start_cost_yuan": 310000,
+      "stop_cost_yuan": 25500,
+      "gas_price_yuan_per_m3": 2.35,
+      "heat_rate_mj_per_kwh": 6.38,
+      "gas_emission_kg_per_kwh": 0.35791799999999996,
+      "buy_price_yuan_per_kwh": 0.614,
+      "sell_price_yuan_per_kwh": 0.675,
+      "code": "JFRD",
+      "measurement_points": [
+        "JFRD_11MKA01GA001BJ40XQ01"
+      ]
+    },
+    {
+      "pmax": 728.379209721921,
+      "pmin": 20.0,
+      "ramp_mw_per_min": 50,
+      "min_up_hour": 5,
+      "min_down_hour": 1,
+      "max_start_per_day": 1,
+      "gen_cost_yuan_per_kwh": 0.635,
+      "start_cost_yuan": 288000,
+      "stop_cost_yuan": 13000,
+      "gas_price_yuan_per_m3": 2.5,
+      "heat_rate_mj_per_kwh": 7.2006,
+      "gas_emission_kg_per_kwh": 0.40395365999999994,
+      "buy_price_yuan_per_kwh": 0.61,
+      "sell_price_yuan_per_kwh": 0.63,
+      "code": "JQRD",
+      "measurement_points": [
+        "JQRD_10CBA00FA107XQ93",
+        "JQRD_10CBA00FA108XQ93",
+        "JQRD_10CBA00FA109XQ93"
+      ]
+    },
+    {
+      "pmax": 1097.6026790094559,
+      "pmin": 125.0,
+      "ramp_mw_per_min": 40,
+      "min_up_hour": 5,
+      "min_down_hour": 1,
+      "max_start_per_day": 1,
+      "gen_cost_yuan_per_kwh": 0.5223,
+      "start_cost_yuan": 89900,
+      "stop_cost_yuan": 26600,
+      "gas_price_yuan_per_m3": 2.28,
+      "heat_rate_mj_per_kwh": 5.59,
+      "gas_emission_kg_per_kwh": 0.31359899999999996,
+      "buy_price_yuan_per_kwh": 0.5354,
+      "sell_price_yuan_per_kwh": 0.5508,
+      "code": "JXRD",
+      "measurement_points": [
+        "JXRD_11MBY0100000BJ01XQ01",
+        "JXRD_12MBY0100000BJ01XQ01",
+        "JXRD_13MKA01GA001BJ02XQ01",
+        "JXRD_15MKA01GA001BJ02XQ01",
+        "JXRD_14MBY0100000BJ01XQ01"
+      ]
+    },
+    {
+      "pmax": 711.2090626384789,
+      "pmin": 240.0,
+      "ramp_mw_per_min": 30,
+      "min_up_hour": 2,
+      "min_down_hour": 1,
+      "max_start_per_day": 1,
+      "gen_cost_yuan_per_kwh": 0.5279,
+      "start_cost_yuan": 158100,
+      "stop_cost_yuan": 34600,
+      "gas_price_yuan_per_m3": 2.49,
+      "heat_rate_mj_per_kwh": 5.019,
+      "gas_emission_kg_per_kwh": 0.2815659,
+      "buy_price_yuan_per_kwh": 0.5289,
+      "sell_price_yuan_per_kwh": 0.554,
+      "code": "JYRD",
+      "measurement_points": [
+        "JYRD_LOADCTL:GTMWSEL1_1.OUT",
+        "JYRD_LOADCTL:GTMWSEL1_2.OUT",
+        "JYRD_30DCS01:FU101.PNT"
+      ]
+    },
+    {
+      "pmax": 252.97193563543337,
+      "pmin": 78.0,
+      "ramp_mw_per_min": 11,
+      "min_up_hour": 5,
+      "min_down_hour": 1.5,
+      "max_start_per_day": 1,
+      "gen_cost_yuan_per_kwh": 0.7,
+      "start_cost_yuan": 195500,
+      "stop_cost_yuan": 35200,
+      "gas_price_yuan_per_m3": 2.49,
+      "heat_rate_mj_per_kwh": 7.48,
+      "gas_emission_kg_per_kwh": 0.419628,
+      "buy_price_yuan_per_kwh": 0.61,
+      "sell_price_yuan_per_kwh": 0.67,
+      "code": "SZRD",
+      "measurement_points": [
+        "SZRD_10DCS02FA133",
+        "SZRD_10DCS02FA134"
+      ]
+    },
+    {
+      "pmax": 255,
+      "pmin": 128.0,
+      "ramp_mw_per_min": 11,
+      "min_up_hour": 3,
+      "min_down_hour": 1,
+      "max_start_per_day": 1,
+      "gen_cost_yuan_per_kwh": 0.63,
+      "start_cost_yuan": 120000,
+      "stop_cost_yuan": 0,
+      "gas_price_yuan_per_m3": 2.508,
+      "heat_rate_mj_per_kwh": 8.043,
+      "gas_emission_kg_per_kwh": 0.45121229999999996,
+      "buy_price_yuan_per_kwh": 0.6,
+      "sell_price_yuan_per_kwh": 0.65,
+      "code": "WLRD",
+      "measurement_points": [
+        "WLRD_13MKA0100000BJ01XQ01",
+        "WLRD_11MBY10CE901XQ01"
+      ]
+    }
+  ]
+}

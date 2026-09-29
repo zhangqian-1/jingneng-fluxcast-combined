@@ -1,0 +1,42 @@
+{
+  "image": "ghcr.io/zhangqian-1/jingneng-power-forecast-observations:7station-platform-v1-amd64-ba6d7d35b873-36563145280-1",
+  "digest": "ghcr.io/zhangqian-1/jingneng-power-forecast-observations@sha256:0f0f1df373707774f421e046db8dc073e88dee0bfef8c82d7f3c8e72ba1e2df9",
+  "platform": "linux/amd64",
+  "commit": "ba6d7d35b8732c48d4466557bd402dde7b6daaed",
+  "model": "trend_detail_7station_2025_v1",
+  "platform_contract": "fluxcast_v1",
+  "api_timezone": "UTC",
+  "training_timezone": "Asia/Shanghai",
+  "time_policy": "utc_to_asia_shanghai_v1",
+  "timezone_basis": "user_confirmed_asia_shanghai",
+  "utc_production_acceptance": "pending",
+  "compose_smoke_test": "passed",
+  "container_recreation_test": "passed",
+  "observations_smoke_test": "passed",
+  "observations_recreation_test": "passed",
+  "metrics": {
+    "points": 7008,
+    "mae_mw": 261.78873917174644,
+    "rmse_mw": 357.0757108017401,
+    "mape_percent": 10.87782403285031,
+    "smape_percent": 11.017794938016873,
+    "r2": 0.736680339381645,
+    "actual_mean_mw": 2630.7092856980603,
+    "predicted_mean_mw": 2578.8836934788815
+  },
+  "image_id": "sha256:1e6439a93fc3b5bf3a411869dd3da038098d64110d7639e7e948867f57832adc",
+  "offline_image": {
+    "file": "image.tar.gz",
+    "sha256": "531d898ce7d5e2caff1c9c8dab62378eabdac28ec3d87bf178bb35df0c2b2172",
+    "bytes": 615254956,
+    "export_import_test": "passed",
+    "import_prediction_test": "passed",
+    "import_observations_test": "passed"
+  },
+  "upstream_release": "https://github.com/zhangqian-1/jingneng-power-forecast-observations/releases/tag/v7station-platform-ba6d7d35b873",
+  "archive": "offline-image-amd64-ba6d7d35b873-36563145280-1.zip",
+  "archive_sha256": "01c110393bbb7c55791f2fff88d6ebe011bb13ecce9a923765ee1bb7b6ee257d",
+  "request_frames": 96,
+  "model_history_points": 672,
+  "forecast_points": 96
+}

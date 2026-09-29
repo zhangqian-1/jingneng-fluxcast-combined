@@ -1,0 +1,39 @@
+{
+  "image": "ghcr.io/zhangqian-1/jingneng-power-forecast:7station-single-step-v1-amd64-a9614ff30661-36149015922-1",
+  "digest": "ghcr.io/zhangqian-1/jingneng-power-forecast@sha256:56d66c021853dab49f7ac734aeb342081bd116053f6e1fb3ab472f92083e81c3",
+  "platform": "linux/amd64",
+  "commit": "a9614ff306613133b25874c955003042a103d2b4",
+  "model": "single_step_7station_2025_v1",
+  "platform_contract": "fluxcast_v1",
+  "api_timezone": "UTC",
+  "training_timezone": "Asia/Shanghai",
+  "time_policy": "utc_to_asia_shanghai_v1",
+  "timezone_basis": "user_confirmed_asia_shanghai",
+  "utc_production_acceptance": "pending",
+  "compose_smoke_test": "passed",
+  "container_recreation_test": "passed",
+  "metrics": {
+    "points": 7008,
+    "mae_mw": 78.30691391613276,
+    "rmse_mw": 113.28509683858331,
+    "mape_percent": 3.1991140983533244,
+    "smape_percent": 3.196759152008787,
+    "r2": 0.9734961949513441,
+    "actual_mean_mw": 2630.7092856980603,
+    "predicted_mean_mw": 2624.639529609018
+  },
+  "image_id": "sha256:76767c8d6086ec47c835c0f93d7df4aeb616835eeab888cd94f1621bdc65481e",
+  "offline_image": {
+    "file": "image.tar.gz",
+    "sha256": "a20195e19ae91ef993ff79961873b38e79757a7f3f39a6deaedee518eb2d8211",
+    "bytes": 613290592,
+    "export_import_test": "passed",
+    "import_prediction_test": "passed"
+  },
+  "upstream_release": "https://github.com/zhangqian-1/jingneng-power-forecast-downloads/releases/tag/v7station-single-step-a9614ff30661",
+  "archive": "offline-image-amd64-a9614ff30661-36149015922-1.zip",
+  "archive_sha256": "819cc7233ec8696fd352ecf791adca22fd0ef1b66bb7d17d3efc894d5b9a42be",
+  "request_frames": 96,
+  "model_history_points": 288,
+  "forecast_points": 1
+}

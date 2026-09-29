@@ -1,0 +1,10 @@
+{
+  "event_key": "JNH.Fluxcast.Compute",
+  "result_point": [
+    {"varname": "totalPowerActual", "timestamp": "2026-09-21 00:30:00", "value": 190.0},
+    {"varname": "totalPowerDeviation", "timestamp": "2026-09-21 00:30:00", "value": 1344.0}
+  ],
+  "extra_info": [
+    {"varname": "dataStatus", "timestamp": "2026-09-21 00:30:00", "value": "complete"}
+  ]
+}

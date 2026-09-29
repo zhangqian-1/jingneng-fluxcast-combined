@@ -1,0 +1,11 @@
+# Preserve original business input bytes and SHA-256 across Windows/Linux checkouts.
+* text=auto eol=lf
+data/** -text -whitespace
+data/README.md text eol=lf whitespace
+data/manifest.json text eol=lf whitespace
+# Shell entrypoints must remain executable by Linux /bin/sh.
+*.sh text eol=lf
+
+# Preserve user-supplied requirements as exact reference copies.
+docs/requirements/*.md -text -whitespace
+docs/requirements/README.md text eol=lf whitespace

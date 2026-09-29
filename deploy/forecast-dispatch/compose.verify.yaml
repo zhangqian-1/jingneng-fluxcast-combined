@@ -1,0 +1,4 @@
+# Use the existing forecast proxy; no extra prediction container or published port.
+services:
+  dispatch:
+    restart: "no"

@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#0b111d" />
+    <title>绿碳协同调度中心 · 七站联合优化</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="board">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark"><span></span><span></span><span></span></div>
+          <div>
+            <h1>绿碳协同调度中心</h1>
+            <p>GREEN–CARBON DISPATCH <span>/</span> 七站联合优化</p>
+          </div>
+        </div>
+        <div class="top-meta">
+          <span class="mode-badge"><i></i> 计算结果加载中</span
+          ><span id="generated">读取结果中…</span>
+        </div>
+        <div class="actions">
+          <button id="refresh" class="icon-btn" title="重新读取计算结果">
+            <span>↻</span> 刷新结果</button
+          ><button id="export" class="icon-btn"><span>↓</span> 导出明细</button>
+        </div>
+      </header>
+      <div class="kpi-section">
+        <div id="cumulative-window" class="window-label">累计区间</div>
+        <section class="kpis" aria-label="累计调度指标" id="kpis"></section>
+        <div id="period-window" class="window-label">当前时段</div>
+        <section class="kpis" aria-label="当前时段调度指标" id="period-kpis"></section>
+      </div>
+      <section class="primary-grid">
+        <article class="panel power-panel">
+          <div class="panel-head">
+            <div>
+              <div class="eyebrow">DISPATCH OVERVIEW</div>
+              <h2 id="chart-title">
+                全天供需平衡 <span class="muted">/ 96 时段</span>
+              </h2>
+            </div>
+            <div class="segmented" aria-label="图表视图">
+              <button data-mode="balance" class="active" aria-pressed="true">
+                供需平衡</button
+              ><button data-mode="stations" aria-pressed="false">
+                七站出力
+              </button>
+            </div>
+          </div>
+          <div class="chart-meta">
+            <span class="unit-label">功率 / MW</span>
+            <div class="legend" id="main-legend"></div>
+          </div>
+          <div
+            id="main-chart"
+            class="main-chart"
+            role="img"
+            aria-label="全天供需功率曲线"
+          ></div>
+          <div class="timeline">
+            <button id="play" class="play-btn" aria-label="播放调度结果">
+              ▶</button
+            ><time id="selected-time">12:00</time
+            ><input
+              id="time-range"
+              type="range"
+              min="0"
+              max="95"
+              value="95"
+              aria-label="调度结果时刻"
+            /><span id="period-label">96 / 96</span
+            ><span class="timeline-note">拖动时间轴联动查看</span>
+          </div>
+        </article>
+        <article class="panel section-panel">
+          <div class="panel-head">
+            <div>
+              <div class="eyebrow">POWER DISTRIBUTION</div>
+              <h2>当前断面</h2>
+            </div>
+            <span class="time-chip" id="flow-time">12:00</span>
+          </div>
+          <div class="load-hero">
+            <span>等效供电需求 <em>MW</em></span
+            ><strong id="load-now">—</strong
+            ><span class="balance-check" id="balance-check">核对供需平衡</span>
+          </div>
+          <div class="flow-list" id="flow-list"></div>
+          <div class="section-bottom">
+            <span>主网补充供能</span
+            ><span>新能源弃电 <b id="curtail-now">—</b><small> MW</small></span>
+          </div>
+        </article>
+      </section>
+      <section class="detail-grid">
+        <article class="panel station-panel">
+          <div class="panel-head">
+            <div>
+              <div class="eyebrow" id="station-context">
+                THERMAL FLEET · 本次计算采用单价
+              </div>
+              <h2>
+                七站调度出力 <span id="online-count" class="count-tag">—</span>
+              </h2>
+            </div>
+            <div class="station-actions">
+              <button id="station-prices" class="text-btn" aria-pressed="false">
+                计算单价
+              </button>
+              <button id="edit-prices" class="text-btn">编辑价格</button>
+              <button id="reset-station" class="text-btn">查看全部 ↗</button>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead id="station-heading">
+                <tr>
+                  <th>场站 / ID</th>
+                  <th class="spark-heading">全天出力</th>
+                  <th class="number">实际出力<small>MW</small></th>
+                  <th class="number">优化出力<small>MW</small></th>
+                  <th class="number">出力调整<small>MW</small></th>
+                  <th class="number">累计电量<small>MWh</small></th>
+                  <th class="number">计划状态</th>
+                </tr>
+              </thead>
+              <tbody id="station-rows"></tbody>
+            </table>
+          </div>
+          <div class="panel-foot">
+            <span><i class="tiny-dot cyan"></i> 点击场站查看优化前后曲线</span
+            ><span>出力调整：优化 − 实际</span>
+          </div>
+        </article>
+        <article class="panel economics-panel">
+          <div class="panel-head">
+            <div>
+              <div class="eyebrow" id="analysis-window">累计区间</div>
+              <h2>累计调度分析</h2>
+            </div>
+          </div>
+          <ol
+            class="dispatch-advice"
+            id="dispatch-advice"
+            aria-label="累计调度分析"
+          ></ol>
+          <div class="cost-caption">
+            <span id="cost-window">累计成本明细 / 万元</span
+            ><span id="cost-total">—</span>
+          </div>
+          <div class="cost-detail" id="cost-detail"></div>
+        </article>
+        <article class="panel renewable-panel">
+          <div class="panel-head">
+            <div>
+              <div class="eyebrow">RENEWABLE ENERGY</div>
+              <h2>新能源消纳 <span class="count-tag">19 场站</span></h2>
+            </div>
+            <span class="unit-label">当前 / MW</span>
+          </div>
+          <div class="renewable-summary">
+            <div>
+              <span>累计接纳率</span><strong id="accepted-rate">—</strong>
+            </div>
+            <div>
+              <span>累计弃电量</span><strong id="curtail-energy">—</strong>
+            </div>
+            <div class="renewable-ring" id="renewable-ring">
+              <span>绿色<br />消纳</span>
+            </div>
+          </div>
+          <div class="farm-heading">
+            <span>场站</span><span>计划接纳</span><span>可用预测</span
+            ><span>装机容量</span>
+          </div>
+          <div
+            id="farm-list"
+            class="farm-list"
+            tabindex="0"
+            aria-label="19个新能源场站的接纳功率、预测可用功率及装机容量，单位MW，滚动查看全部"
+          ></div>
+          <div class="panel-foot">
+            <span>按试算接纳电量排序</span><span>滚动查看全部 19 站 ↓</span>
+          </div>
+        </article>
+      </section>
+      <footer>
+        <div>
+          <span class="footer-dot"></span
+          ><span id="provenance">结果来源：计算输出文件</span
+          ><span class="footer-divider">|</span><span>15 min / 时段</span
+          ><span class="footer-divider">|</span
+          ><span id="solver-label">HiGHS 联合优化</span>
+        </div>
+        <span>JN ENERGY <b>·</b> 调度辅助决策</span>
+      </footer>
+    </div>
+    <dialog id="price-dialog" aria-labelledby="price-title" aria-describedby="price-note">
+      <form id="price-form">
+        <div class="price-dialog-head">
+          <h2 id="price-title">价格配置</h2>
+          <button id="price-close" type="button" class="text-btn">关闭</button>
+        </div>
+        <p id="price-note">七站发电成本与购电价，单位：元/kWh。保存后用于新建调度断面，历史试算结果保持原值。</p>
+        <p id="price-version">尚未读取当前配置</p>
+        <fieldset id="price-fields" disabled>
+          <legend class="sr-only">七站价格</legend>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>场站</th><th>发电成本（含燃料）</th><th>购电价</th></tr></thead>
+              <tbody id="price-inputs"></tbody>
+            </table>
+          </div>
+        </fieldset>
+        <p id="price-message" role="status" aria-live="polite"></p>
+        <div class="price-dialog-actions">
+          <button id="price-reload" type="button" class="icon-btn">重新读取（替换编辑）</button>
+          <button id="price-save" type="submit" class="icon-btn" disabled>保存全部价格</button>
+        </div>
+      </form>
+    </dialog>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <div id="panel-backdrop" hidden></div>
+    <div id="zoom-controls" hidden>
+      <button id="zoom-prev" aria-label="上一时段">←</button>
+      <span id="zoom-time">—</span>
+      <input
+        id="zoom-range"
+        type="range"
+        min="0"
+        max="95"
+        value="41"
+        aria-label="放大面板试算时刻"
+      />
+      <button id="zoom-next" aria-label="下一时段">→</button>
+      <button id="zoom-close">关闭放大 · Esc</button>
+    </div>
+    <script src="./single-period-data.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

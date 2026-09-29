@@ -1,0 +1,92 @@
+name: Build and Verify Combined Delivery
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: combined-delivery
+  cancel-in-progress: false
+
+jobs:
+  package:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    env:
+      PYTHONUNBUFFERED: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+      GH_TOKEN: ${{ github.token }}
+      COMPOSE_PROJECT_NAME: fluxcast-single-verify-cloud
+      DISPATCH_PORT: "18868"
+      EVIDENCE: output/forecast-integration/cloud-verified
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Configure unique delivery version
+        shell: bash
+        run: |
+          set -euo pipefail
+          version="$(date -u +%Y%m%d)-r${GITHUB_RUN_ID}a${GITHUB_RUN_ATTEMPT}"
+          echo "DELIVERY_VERSION=$version" >> "$GITHUB_ENV"
+          echo "DISPATCH_IMAGE=jingneng-fluxcast-all-in-one:$version" >> "$GITHUB_ENV"
+          mkdir -p output/cloud
+          df -h .
+          docker version
+          python -m pip install --disable-pip-version-check uv==0.12.3
+          uv sync --all-groups --frozen
+      - name: Check source and run regression tests
+        run: |
+          uv run python scripts/check_delivery.py
+          uv run ruff check .
+          uv run ruff format --check .
+          uv run pytest -q --junitxml=output/cloud/pytest.xml
+      - name: Download and verify pinned model images
+        run: uv run python scripts/prepare_cloud_build.py all
+      - name: Build the combined image
+        run: |
+          docker compose --progress plain --env-file deploy/forecast-dispatch/.env.example -f deploy/forecast-dispatch/compose.yaml build
+      - name: Start one isolated container
+        run: |
+          docker compose --env-file deploy/forecast-dispatch/.env.example -f deploy/forecast-dispatch/compose.yaml -f deploy/forecast-dispatch/compose.verify.yaml up -d --no-build --pull never --wait --wait-timeout 360
+      - name: Verify real forecasts and unified response
+        run: |
+          uv run python scripts/check_forecast_bridge_live.py --combined --forecast-url http://127.0.0.1:18868 --dispatch-container fluxcast-single-verify-cloud-dispatch-1 --output "$EVIDENCE"
+      - name: Verify original models and dependencies
+        run: |
+          uv run python scripts/check_combined_image.py --image "$DISPATCH_IMAGE" --output "$EVIDENCE/combined-image.json"
+      - name: Verify recreation and process failure recovery
+        run: |
+          uv run python scripts/check_combined_lifecycle.py --project "$COMPOSE_PROJECT_NAME" --port 18868 --output "$EVIDENCE/lifecycle.json"
+      - name: Export verified offline delivery
+        run: |
+          uv run python scripts/package_forecast_dispatch.py --version "$DELIVERY_VERSION" --image "$DISPATCH_IMAGE" --evidence "$EVIDENCE" | tee output/cloud/package-result.json
+      - name: Verify exported image and offline startup
+        run: |
+          export COMPOSE_PROJECT_NAME=fluxcast-offline-delivery-check
+          export DISPATCH_PORT=18869
+          sh "output/combined-delivery-$DELIVERY_VERSION/start.sh"
+          curl --fail --retry 3 http://127.0.0.1:18869/health
+          test "$(docker inspect fluxcast-offline-delivery-check-dispatch-1 --format '{{.Image}}')" = "$(docker image inspect "$DISPATCH_IMAGE" --format '{{.Id}}')"
+      - name: Publish private release after all checks pass
+        shell: bash
+        run: |
+          set -euo pipefail
+          zip -j output/cloud/validation-evidence.zip "$EVIDENCE"/*.json output/cloud/pytest.xml output/cloud/package-result.json
+          printf 'Linux/amd64 combined delivery. Source: %s\n\nAll source, real-model integration, model provenance, lifecycle and offline startup checks passed.\n\nThe source and artifacts remain private. Forecast history must still be initialized with real platform data before production use.\n\nWorkflow: %s/%s/actions/runs/%s\n' "$GITHUB_SHA" "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID" > output/cloud/release-notes.md
+          gh release create "$DELIVERY_VERSION" \
+            "output/七站预测与单断面优化联合交付-$DELIVERY_VERSION.zip" \
+            "output/七站预测与单断面优化联合交付-$DELIVERY_VERSION.sha256" \
+            output/cloud/validation-evidence.zip \
+            --target "$GITHUB_SHA" --title "Combined delivery $DELIVERY_VERSION (AMD64)" \
+            --notes-file output/cloud/release-notes.md
+          echo "Release: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/releases/tag/$DELIVERY_VERSION" >> "$GITHUB_STEP_SUMMARY"
+      - name: Show diagnostics
+        if: always()
+        run: |
+          docker ps -a
+          docker compose --env-file deploy/forecast-dispatch/.env.example -f deploy/forecast-dispatch/compose.yaml logs --no-color --tail 100 || true
+          df -h .

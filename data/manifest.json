@@ -1,0 +1,154 @@
+{
+  "files": [
+    {
+      "path": "智慧调度数据需求清单汇总.xlsx",
+      "bytes": 9140,
+      "sha256": "1f6c8836be83f127a099f1f939c93c371449784b0515f4bcff615d209f01889c"
+    },
+    {
+      "path": "京津冀场站现有功率预测系统数量统计-含测点.xlsx",
+      "bytes": 11488,
+      "sha256": "ee5a8183b67210c5aefa699c771b91dde3e15839e848045a9aa2d0956da6a706"
+    },
+    {
+      "path": "电机系参数需求/gard_240601_260101_15min.csv",
+      "bytes": 5940845,
+      "sha256": "8c6a8245befb2ac3161acfa92dbaf5dda351c37e02fb57e7e84c1ab414c539bc"
+    },
+    {
+      "path": "电机系参数需求/jfrd_220101_260101_15min.csv",
+      "bytes": 8186898,
+      "sha256": "cc15cfb098a22f15f82f8e2986f65f6f8c55d2fbeb4b946eead65da2bcd65baa"
+    },
+    {
+      "path": "电机系参数需求/jqrd_220101_260101_15min.csv",
+      "bytes": 13336768,
+      "sha256": "c3d16d46387a173856bbbb08ff3878b9fe806c024f091f41295ef223abfb8744"
+    },
+    {
+      "path": "电机系参数需求/jxrd_240601_260101_15min.csv",
+      "bytes": 7761631,
+      "sha256": "b8b21cd3a3128984cee52022f57b903c104fc1c0276f4eaf0973c6c8e4a0690c"
+    },
+    {
+      "path": "电机系参数需求/jyrd_230401_260401_15min.csv",
+      "bytes": 9008733,
+      "sha256": "8b27e85e9a4db14f464125021b66eeef4e9bd157e70355bfe1d95967191e9178"
+    },
+    {
+      "path": "电机系参数需求/szrd_220101_260101_15min.csv",
+      "bytes": 9614923,
+      "sha256": "4983bc7daf39e68d4d8ea0e841be84347a54c77191b7efd4ee06b6afc693e9c6"
+    },
+    {
+      "path": "电机系参数需求/wlrd_220101_260101_15min.csv",
+      "bytes": 10199068,
+      "sha256": "563156a39fbd3983b4e932ee3fc8ae8178f64af1170228a2c1dcf8746dab5bf2"
+    },
+    {
+      "path": "新能源场站预测输入数据/farm_1.json",
+      "bytes": 104000,
+      "sha256": "8d5f420c9021e691391bee373b8bfd4401bc9ba31cb59c8f0ed3e6ca18d63d3b"
+    },
+    {
+      "path": "新能源场站预测输入数据/farm_2.json",
+      "bytes": 101815,
+      "sha256": "fdb20742156df7332f828e2c24ca971956f8e679935fedb016f9f36f278c7c04"
+    },
+    {
+      "path": "新能源场站预测输入数据/farm_3.json",
+      "bytes": 101830,
+      "sha256": "f8894f0a32ab31370144dccbcf544e154a66dd60ec05b7126749c1fa1b4f4a0f"
+    },
+    {
+      "path": "新能源场站预测输入数据/farm_4.json",
+      "bytes": 101824,
+      "sha256": "f1c9404f06da65ec84266df5c0edf0b9b6766f1e63eaadaa698070d3ad9ee39c"
+    },
+    {
+      "path": "新能源场站预测输入数据/farm_7.json",
+      "bytes": 101826,
+      "sha256": "232a4756d5e31c1cdad2ee6df0a2646a498806ecfe91e7ad27a984881f520a67"
+    },
+    {
+      "path": "新能源场站预测输入数据/farm_8.json",
+      "bytes": 101783,
+      "sha256": "c0e2bea926908f64e25eea0a653ff70a53a53eda6fe2a802eb981ba66817498f"
+    },
+    {
+      "path": "新能源场站预测输入数据/farm_10.json",
+      "bytes": 105503,
+      "sha256": "040095a74ef22af8d6cdd3c5945cf2b251d95d964ebc7cea5f22656508a3480a"
+    },
+    {
+      "path": "新能源场站预测输入数据/farm_11.json",
+      "bytes": 105318,
+      "sha256": "33a93fcfa52c878023d11637ae35364da6bae9874bbd4722dd2f00c4473c5a17"
+    },
+    {
+      "path": "新能源场站预测输入数据/farm_12.json",
+      "bytes": 105321,
+      "sha256": "68f984d5776efee9bcf4b7e1254f0b69925327337d7e64a1f8e1ed9a3a998def"
+    },
+    {
+      "path": "新能源场站预测输入数据/farm_13.json",
+      "bytes": 105388,
+      "sha256": "f310627f92f601baa060cf07459c89e1e58588ccb059dee522b4f4db74cdf7a4"
+    },
+    {
+      "path": "新能源场站预测输入数据/farm_16.json",
+      "bytes": 105373,
+      "sha256": "dd8981936f6ed95cfe0935a016d163a6d19c6f165c18008d349bea4403c1a03a"
+    },
+    {
+      "path": "新能源场站预测输入数据/farm_17.json",
+      "bytes": 104887,
+      "sha256": "c97782f923b7c95a6ad34d15a374c640b4b4448e4765a076ae9d83ae1b2484b7"
+    },
+    {
+      "path": "新能源场站预测输入数据/farm_19.json",
+      "bytes": 105477,
+      "sha256": "1585042c787ab8477f12d3ce678f5974fe88aee7946712de13dff3dcb0919ca7"
+    },
+    {
+      "path": "新能源场站预测输入数据/farm_20.json",
+      "bytes": 104852,
+      "sha256": "23c42f19c332f54542aaac048313aa1e579b3cbbc421190a5262f3a290e48a17"
+    },
+    {
+      "path": "新能源场站预测输入数据/farm_21.json",
+      "bytes": 105374,
+      "sha256": "078ba10ce3bb01baa6c43436b72d67ec009d47d44e30fa1bb947d47a7e701f41"
+    },
+    {
+      "path": "新能源场站预测输入数据/farm_22.json",
+      "bytes": 102795,
+      "sha256": "598e2b5d038d391b93e50ef39f1b93121801285ac367731bc6ce013c48d27348"
+    },
+    {
+      "path": "新能源场站预测输入数据/farm_23.json",
+      "bytes": 105275,
+      "sha256": "59fdecf402bdb11cfa882422a38646f4fedb2edbacb12412a1c9a089949c38e2"
+    },
+    {
+      "path": "新能源场站预测输入数据/farm_28.json",
+      "bytes": 105309,
+      "sha256": "50998b93e5c9ccfe902fef81360fcecf55c346a8e02acaf0e3772539dfcc990c"
+    },
+    {
+      "path": "新能源场站预测输入数据/farm_29.json",
+      "bytes": 103137,
+      "sha256": "6ceac0923fe40d82d510964d577ee2e5c0a5e6e1264c80553b5a468a8c33ad33"
+    }
+  ],
+  "renewable_source": {
+    "archive": "renewable_20260918.tar.gz",
+    "sha256": "db602d74ab241d4fa0b4a923a0f5c2fcd0d9bd63e73dd15b4883d512e1668a15",
+    "batch": "202609180800",
+    "forecast_start_day": "2026-09-19",
+    "forecast_end_day": "2026-09-28",
+    "timestamp_semantics": "interval_end_Asia/Shanghai",
+    "power_unit": "MW",
+    "default_scenario_day": "2026-09-19"
+  }
+}
