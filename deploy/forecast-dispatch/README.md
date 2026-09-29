@@ -16,7 +16,7 @@
 
 ## 构建和启动
 
-本机不具备Docker环境时，可使用[私有GitHub云端构建](../../docs/云端封装说明.md)。Release交付包已包含镜像，部署人员不必重新下载两份预测基础镜像或重新训练。源码构建时才需要下面两份基础镜像。独立历史展示导出目录属于可选交付内容；即使未附带该目录，服务内的/dashboard/及service/dashboard源码仍保留。
+本机不具备Docker环境时，可使用[GitHub云端构建](../../docs/云端封装说明.md)。已验证的[AMD64交付包](https://github.com/zhangqian-1/jingneng-fluxcast-combined/releases/tag/20260929-r36595586771a1)可公开下载，包含镜像，部署人员不必重新下载两份预测基础镜像或重新训练。源码构建时才需要下面两份基础镜像。独立历史展示导出目录属于可选交付内容；即使未附带该目录，服务内的/dashboard/及service/dashboard源码仍保留。
 
 在仓库根目录执行。先通过对应交付包的image.tar.gz导入两份预测镜像，或确保构建环境能拉取.env.example指定的镜像：
 

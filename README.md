@@ -1,6 +1,18 @@
 # 七站双预测与单断面优化联合服务
 
-本次源码更新增加实测合计与偏差。交付包以[新私有仓库的Release](https://github.com/zhangqian-1/jingneng-fluxcast-combined/releases)为准，仅在云端构建和容器验收通过后发布；没有对应Release就表示尚未完成封装。原r5安装包不包含本次功能，不能直接用于本版部署。新增字段见[实测合计与全天预测偏差](docs/实测合计与全天预测偏差.md)，本地记录见[本次修改与验证](docs/实测功能修改与验证-20260929.md)，构建方式见[云端封装说明](docs/云端封装说明.md)。
+本版增加实测合计与偏差，已完成Linux/AMD64联合镜像构建和容器验证。原r5安装包不包含本次功能，不能直接用于本版部署。新增字段见[实测合计与全天预测偏差](docs/实测合计与全天预测偏差.md)，修改记录见[本次修改与验证](docs/实测功能修改与验证-20260929.md)，构建方式见[云端封装说明](docs/云端封装说明.md)。
+
+## 下载与交接
+
+| 内容 | 下载链接 | 用途 |
+|---|---|---|
+| 最新源码 | [下载源码ZIP](https://github.com/zhangqian-1/jingneng-fluxcast-combined/archive/refs/heads/main.zip) | 提交公司GitLab、维护和重新构建 |
+| AMD64联合镜像交付包 | [下载交付ZIP，约1.31 GB](https://github.com/zhangqian-1/jingneng-fluxcast-combined/releases/download/20260929-r36595586771a1/jingneng-fluxcast-combined-amd64-20260929-r36595586771a1.zip) | 包含三个算法、离线镜像、启动脚本、源码和联调记录，用于服务器部署 |
+| 镜像包校验文件 | [下载SHA256](https://github.com/zhangqian-1/jingneng-fluxcast-combined/releases/download/20260929-r36595586771a1/jingneng-fluxcast-combined-amd64-20260929-r36595586771a1.sha256) | 核对交付ZIP是否完整 |
+
+当前交付版本为 `20260929-r36595586771a1`，完整附件见[Release](https://github.com/zhangqian-1/jingneng-fluxcast-combined/releases/tag/20260929-r36595586771a1)。[云端验证](https://github.com/zhangqian-1/jingneng-fluxcast-combined/actions/runs/36595586771)通过248项测试，2项Windows专用测试在Linux跳过；真实模型联调、实测偏差、模型一致性、重启恢复和交付包启动检查均通过。镜像构建源码为 `0e6f441`，其后的下载文件命名及文档更新不改变运行代码和模型。
+
+提交公司GitLab时，使用源码ZIP解压后的项目文件，保留目标仓库自己的 `.git`，确认目标分支后再提交；不要覆盖其他人的分支。镜像交付ZIP单独下载，不放入Git源码目录。公开下载不需要GitHub登录，但上传代码和镜像不等于已经部署到公司服务器；服务器仍须具备Linux/AMD64容器运行环境，并补齐真实历史输入。
 
 当前平台入口是 **POST `/api/v1/fluxcast/compute`**。按用户提供的第一份接口约定，请求只需原有的 `point_table`、`frames`、`renewable_data` 三个顶层字段；七个燃机场站和19个新能源场站一次提交、一次返回。完整契约见[平台接口说明](docs/platform-api.md)，本次结构与MD核对见[双预测与单时段优化](docs/双预测与单时段优化-20260926.md)。
 
@@ -57,7 +69,7 @@ uv run pytest -q
 
 `dashboard/` 及交付包独立HTML是固定历史情景展示，96点代表96次独立单时段试算，不是实时平台监控。原始数据、历史交付与历史报告保留；当前接口以本说明及第一份原始约定为准。
 
-历史[20260929-r5](docs/交付下载-20260929-r5.md)是本次开发基线，不含新增实测返回及历史接收控制；不能用该安装包验证本次功能。新版须重新构建、通过容器验收后另行发布，不覆盖历史包。上传代码和安装包不代表生产已部署。ARM整包实机验证、康保实际容量及现场运行参数仍需现场确认。
+历史[20260929-r5](docs/交付下载-20260929-r5.md)是本次开发基线，不含新增实测返回及历史接收控制；不能用该安装包验证本次功能。新版已在上方Release独立发布，不覆盖历史包。上传代码和安装包不代表生产已部署。本次仅交付AMD64镜像；康保实际容量及现场运行参数仍需现场确认。
 
 ## 两个预测功能的统一入口
 

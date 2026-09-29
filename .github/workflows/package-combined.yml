@@ -82,12 +82,12 @@ jobs:
           sh "output/combined-delivery-$DELIVERY_VERSION/start.sh"
           curl --fail --retry 3 http://127.0.0.1:18869/health
           test "$(docker inspect fluxcast-offline-delivery-check-dispatch-1 --format '{{.Image}}')" = "$(docker image inspect "$DISPATCH_IMAGE" --format '{{.Id}}')"
-      - name: Publish private release after all checks pass
+      - name: Publish release after all checks pass
         shell: bash
         run: |
           set -euo pipefail
           zip -j output/cloud/validation-evidence.zip "$EVIDENCE"/*.json output/cloud/pytest.xml output/cloud/package-result.json
-          printf 'Linux/amd64 combined delivery. Source: %s\n\nAll source, real-model integration, model provenance, lifecycle and offline startup checks passed.\n\nThe source and artifacts remain private. Forecast history must still be initialized with real platform data before production use.\n\nWorkflow: %s/%s/actions/runs/%s\n' "$GITHUB_SHA" "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID" > output/cloud/release-notes.md
+          printf 'Linux/amd64 combined delivery. Source: %s\n\nAll source, real-model integration, model provenance, lifecycle and offline startup checks passed.\n\nDownload links and GitLab handoff instructions are in README.md. Forecast history must still be initialized with real platform data before production use.\n\nWorkflow: %s/%s/actions/runs/%s\n' "$GITHUB_SHA" "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID" > output/cloud/release-notes.md
           gh release create "$DELIVERY_VERSION" \
             "output/jingneng-fluxcast-combined-amd64-$DELIVERY_VERSION.zip" \
             "output/jingneng-fluxcast-combined-amd64-$DELIVERY_VERSION.sha256" \
