@@ -51,7 +51,7 @@ def main():
     if not re.fullmatch(r"[0-9]{8}(?:-[a-z0-9]+)?", version):
         raise ValueError("Delivery version must be YYYYMMDD with an optional lowercase suffix")
     delivery = ROOT / f"output/combined-delivery-{version}"
-    archive = ROOT / f"output/七站预测与单断面优化联合交付-{version}.zip"
+    archive = ROOT / f"output/jingneng-fluxcast-combined-amd64-{version}.zip"
     if delivery.exists() or archive.exists():
         raise ValueError(
             "Choose a new version; existing deliveries must not be reused or overwritten"

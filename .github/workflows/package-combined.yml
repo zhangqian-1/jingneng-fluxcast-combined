@@ -89,8 +89,8 @@ jobs:
           zip -j output/cloud/validation-evidence.zip "$EVIDENCE"/*.json output/cloud/pytest.xml output/cloud/package-result.json
           printf 'Linux/amd64 combined delivery. Source: %s\n\nAll source, real-model integration, model provenance, lifecycle and offline startup checks passed.\n\nThe source and artifacts remain private. Forecast history must still be initialized with real platform data before production use.\n\nWorkflow: %s/%s/actions/runs/%s\n' "$GITHUB_SHA" "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID" > output/cloud/release-notes.md
           gh release create "$DELIVERY_VERSION" \
-            "output/七站预测与单断面优化联合交付-$DELIVERY_VERSION.zip" \
-            "output/七站预测与单断面优化联合交付-$DELIVERY_VERSION.sha256" \
+            "output/jingneng-fluxcast-combined-amd64-$DELIVERY_VERSION.zip" \
+            "output/jingneng-fluxcast-combined-amd64-$DELIVERY_VERSION.sha256" \
             output/cloud/validation-evidence.zip \
             --target "$GITHUB_SHA" --title "Combined delivery $DELIVERY_VERSION (AMD64)" \
             --notes-file output/cloud/release-notes.md
